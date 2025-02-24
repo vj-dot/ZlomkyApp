@@ -26,10 +26,14 @@ public class Main {
         poleZlomku[0] = a;
         poleZlomku[1] = b;
         poleZlomku[2] = c;
-        poleZlomku[3] = d;
+        poleZlomku[3] = new Zlomek(3,0);
 
-        Zlomek all = sumaZlomku(poleZlomku);
-        System.out.printf("Soucet zlomku a, b, c, d je %s\n", all);
+        try {
+            Zlomek all = sumaZlomku(poleZlomku);
+            System.out.printf("Soucet zlomku a, b, c, d je %s\n", all);
+        } catch (ArithmeticException e) {
+            System.out.println("Chyba pri vypoctu sumy zlomku: " + e.getMessage());
+        }
 
         Number[] pole2 = new Number[8];
         for (int i = 0; i < poleZlomku.length; i++) {
