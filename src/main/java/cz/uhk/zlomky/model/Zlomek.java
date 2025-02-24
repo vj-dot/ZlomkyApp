@@ -1,11 +1,11 @@
 package cz.uhk.zlomky.model;
 
-public class Zlomek {
+public class Zlomek extends Number {
     private final int citatel;
     private final int jmenovatel;
 
 
-    public int getCotatel() {
+    public int getCitatel() {
         return citatel;
     }
     public int getJmenovatel() {
@@ -59,5 +59,25 @@ public class Zlomek {
     @Override
     public String toString() {
         return String.format("%d / %d", citatel, jmenovatel);
+    }
+
+    @Override
+    public int intValue() {
+        return citatel / jmenovatel;
+    }
+
+    @Override
+    public long longValue() {
+        return intValue();
+    }
+
+    @Override
+    public float floatValue() {
+        return (float)doubleValue();
+    }
+
+    @Override
+    public double doubleValue() {
+        return ((double)citatel) / jmenovatel;
     }
 }

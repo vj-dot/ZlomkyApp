@@ -1,5 +1,7 @@
 import cz.uhk.zlomky.model.Zlomek;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Zlomkoaplikace");
@@ -7,8 +9,8 @@ public class Main {
         //vytvoreni instance(=objekt) tridy zlomek
         Zlomek a = new Zlomek(3, 4);
         Zlomek b = new Zlomek(2, 5);
-        Zlomek c = new Zlomek(9, 10);
-        Zlomek d = new Zlomek(5, 6);
+        Zlomek c = new Zlomek(6, 20);
+        Zlomek d = new Zlomek(15, 8);
 
         System.out.printf("Zlomek a =  %s\n", a.toString());
         System.out.printf("Zlomek b =  %s\n", b.toString());
@@ -28,6 +30,24 @@ public class Main {
 
         Zlomek all = sumaZlomku(poleZlomku);
         System.out.printf("Soucet zlomku a, b, c, d je %s\n", all);
+
+        Number[] pole2 = new Number[8];
+        for (int i = 0; i < poleZlomku.length; i++) {
+            pole2[i] = poleZlomku[i];
+        }
+
+        pole2[4] = 10;
+        pole2[5] = 20;
+        pole2[6] = 30.025;
+        pole2[7] = 40;
+        double suma = 0;
+
+        for (Number n : pole2) {
+            System.out.printf("%s\n", n);
+            suma += n.doubleValue();
+        }
+        System.out.printf("Suma: %s\n", suma);
+
     }
 
     public static Zlomek sumaZlomku(Zlomek[] pole) {
