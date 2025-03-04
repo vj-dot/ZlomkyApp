@@ -48,12 +48,17 @@ public class Zlomek extends Number {
         }
 
         int zb;
-        do {
-            zb = a % b;
-            a = b;
-            b = zb;
-        } while (zb != 0);
-        return new Zlomek(citatel / a, jmenovatel / a);
+        if (b != 0) {
+            do {
+                zb = a % b;
+                a = b;
+                b = zb;
+            } while (zb != 0);
+            return new Zlomek(citatel / a, jmenovatel / a);
+        } else {
+            return new Zlomek(0,1);
+        }
+
     }
 
     @Override
